@@ -1,25 +1,20 @@
-
-
 /*
-* The third stage requires you to increase the capabilities of your software. Now it should be able to recognize the number of a specific habitat from the input and show the animals living there.
-
-Add all of the variables from the template to a single variable with the list type. The order of variables matters: they must appear on the list in the order in which they're defined in the code. The list must contain all of the variables with no duplicates.
+* Now it's time to make our project user-friendly. In this final stage, you'll make your software ready for the zoo staff to use. Your program should understand the habitat numbers, show the animals, and be able to work continuously without having to be restarted.
 
 Objectives
-In this stage your program should:
+Your tasks at this point:
 
-Ask for the number of the desired habitat using the following phrase: Please enter the number of the habitat you would like to view:
+Your program should repeat the behavior from the previous stage, but now in a loop.
 
-Use the input number as an index of your habitats to print its content.
+Do not forget to include an exit opportunity: inputting exit should end the program.
 
-End with the following phrase:
+When the program is done running, it should print: See you later!
 
----
-You've reached the end of the program. To check another habitat, please restart the watcher.
 Examples
-The greater-than symbol followed by a space (> ) represents the user input. Notice that it's not part of the input.*/
+The greater-than symbol followed by a space (> ) represents the user input. Note that it's not part of the input.
+* */
 
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class Main {
@@ -145,22 +140,22 @@ public class Main {
             (" ~----( ~   Y.  )
             It looks like we will soon have more rabbits!""";
 
+        String[] animals = {camel, lion, deer, goose, bat, rabbit};
+
         // write your code here
-
-        ArrayList<String> listOfAnimal = new ArrayList<>();
-        listOfAnimal.add(camel);
-        listOfAnimal.add(lion);
-        listOfAnimal.add(deer);
-        listOfAnimal.add(goose);
-        listOfAnimal.add(bat);
-        listOfAnimal.add(rabbit);
-
         System.out.print("Please enter the number of the habitat you would like to view:");
         Scanner scanner = new Scanner(System.in);
-        int userChoose = scanner.nextInt();
-        System.out.println(listOfAnimal.get(userChoose));
+        for(;;) {
+            String nextLine = scanner.nextLine();
+            if(nextLine.equals("exit")){
+                break;
+            } else {
+                System.out.println(animals[Integer.parseInt(nextLine)]);
+            }
+        }
+        System.out.println("See you later!");
 
-        System.out.println("---");
-        System.out.println("You've reached the end of the program. To check another habitat, please restart the watcher.");
+
+
     }
 }
